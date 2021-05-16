@@ -119,7 +119,7 @@ func TestExecutableDelete(t *testing.T) {
 		t.Fatalf("rename copy to previous name failed: %v", err)
 	}
 
-	w.Write([]byte{0})
+	_, _ = w.Write([]byte{0})
 	w.Close()
 
 	err = cmd.Wait()
@@ -175,7 +175,7 @@ func TestMain(m *testing.M) {
 		if runtime.GOOS == "windows" {
 			dir = filepath.VolumeName(".")
 		}
-		os.Chdir(dir)
+		_ = os.Chdir(dir)
 		if ep, err := Executable(); err != nil {
 			fmt.Fprint(os.Stderr, "ERROR: ", err)
 		} else {

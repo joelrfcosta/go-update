@@ -10,7 +10,7 @@ import (
 	"math/big"
 )
 
-// Verifier defines an interface for verfiying an update's signature with a public key.
+// Verifier defines an interface for verifiying an update's signature with a public key.
 type Verifier interface {
 	VerifySignature(checksum, signature []byte, h crypto.Hash, publicKey crypto.PublicKey) error
 }

@@ -7,6 +7,10 @@ import (
 	"os"
 )
 
+const (
+	size = 1000
+)
+
 func mustOpen(path string) *os.File {
 	f, err := os.Open(path)
 	if err != nil {
@@ -67,7 +71,7 @@ func fileCmp(a, b *os.File) int64 {
 	return -1
 }
 
-func mustWriteRandFile(path string, size int) *os.File {
+func mustWriteRandFile(path string) *os.File {
 	p := make([]byte, size)
 	_, err := rand.Read(p)
 	if err != nil {

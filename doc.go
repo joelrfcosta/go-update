@@ -11,7 +11,7 @@ This example shows how to update a program remotely from a URL.
 		"fmt"
 		"net/http"
 
-		"github.com/inconshreveable/go-update"
+		"github.com/joelrfcosta/go-update"
 	)
 
 	func doUpdate(url string) error {
@@ -43,7 +43,7 @@ may be applied by implementing the Patcher interface.
 		"encoding/hex"
 		"io"
 
-		"github.com/inconshreveable/go-update"
+		"github.com/joelrfcosta/go-update"
 	)
 
 	func updateWithPatch(patch io.Reader) error {
@@ -67,7 +67,7 @@ go-update validates SHA256 checksums by default, but this is pluggable via the H
 property on the Options struct.
 
 This example shows how to guarantee that the newly-updated binary is verified to
-have an appropriate checksum (that was otherwise retrived via a secure channel)
+have an appropriate checksum (that was otherwise retrieved via a secure channel)
 specified as a hex string.
 
 	import (
@@ -76,7 +76,7 @@ specified as a hex string.
 		"encoding/hex"
 		"io"
 
-		"github.com/inconshreveable/go-update"
+		"github.com/joelrfcosta/go-update"
 	)
 
 	func updateWithChecksum(binary io.Reader, hexChecksum string) error {
@@ -113,7 +113,7 @@ with the private key and distribute the signature along with the update.
 		"encoding/hex"
 		"io"
 
-		"github.com/inconshreveable/go-update"
+		"github.com/joelrfcosta/go-update"
 	)
 
 	var publicKey = []byte(`
@@ -165,7 +165,7 @@ for more complete solutions.
 
 go-update only works for self-updating applications that are distributed as a single binary, i.e.
 applications that do not have additional assets or dependency files.
-Updating application that are distributed as mutliple on-disk files is out of scope, although this
+Updating application that are distributed as multiple on-disk files is out of scope, although this
 may change in future versions of this library.
 
 */

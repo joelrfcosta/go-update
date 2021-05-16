@@ -12,7 +12,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/inconshreveable/go-update/internal/osext"
+	"github.com/joelrfcosta/go-update/internal/osext"
 )
 
 var (
@@ -140,7 +140,7 @@ func Apply(update io.Reader, opts Options) error {
 		return err
 	}
 
-	// move the new exectuable in to become the new program
+	// move the new executable in to become the new program
 	err = os.Rename(newPath, opts.TargetPath)
 
 	if err != nil {
@@ -317,6 +317,6 @@ func checksumFor(h crypto.Hash, payload []byte) ([]byte, error) {
 		return nil, errors.New("requested hash function not available")
 	}
 	hash := h.New()
-	hash.Write(payload) // guaranteed not to error
+	_, _ = hash.Write(payload) // guaranteed not to error
 	return hash.Sum([]byte{}), nil
 }

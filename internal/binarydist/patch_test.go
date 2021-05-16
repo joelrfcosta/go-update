@@ -8,8 +8,8 @@ import (
 )
 
 func TestPatch(t *testing.T) {
-	mustWriteRandFile("test.old", 1e3)
-	mustWriteRandFile("test.new", 1e3)
+	mustWriteRandFile("test.old")
+	mustWriteRandFile("test.new")
 
 	got, err := ioutil.TempFile("/tmp", "bspatch.")
 	if err != nil {
